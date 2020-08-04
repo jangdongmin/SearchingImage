@@ -1,0 +1,6 @@
+module Pods_SearchingImage {
+  umbrella header "Pods-SearchingImage-umbrella.h"
+
+  export *
+  module * { export * }
+}

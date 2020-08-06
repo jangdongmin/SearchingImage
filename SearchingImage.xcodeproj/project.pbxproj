@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		012F228BA919565409B6E178 /* libPods-SearchingImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7EFD9F0D5ACB1D45DBA2DD /* libPods-SearchingImage.a */; };
 		0947C3C824D9A1FC000FFAC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0947C3C724D9A1FC000FFAC0 /* AppDelegate.swift */; };
 		0947C3CC24D9A1FC000FFAC0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0947C3CB24D9A1FC000FFAC0 /* SearchViewController.swift */; };
 		0947C3CF24D9A1FC000FFAC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0947C3CD24D9A1FC000FFAC0 /* Main.storyboard */; };
@@ -17,6 +16,12 @@
 		0947C3E424D9B195000FFAC0 /* ImageSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0947C3E324D9B195000FFAC0 /* ImageSearchRequest.swift */; };
 		0947C3E624D9B1F6000FFAC0 /* ImageSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0947C3E524D9B1F6000FFAC0 /* ImageSearchResponse.swift */; };
 		0947C3E924D9B443000FFAC0 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0947C3E824D9B443000FFAC0 /* SearchViewModel.swift */; };
+		0957834924DB02DB00FC4FA8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0957834824DB02DB00FC4FA8 /* Constants.swift */; };
+		0957834B24DB04EF00FC4FA8 /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0957834A24DB04EF00FC4FA8 /* UserEndpoint.swift */; };
+		0965E4BA24DC4E7B00B8665A /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965E4B924DC4E7B00B8665A /* ImageCollectionView.swift */; };
+		0965E4BC24DC4FE700B8665A /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965E4BB24DC4FE700B8665A /* ImageCollectionViewCell.swift */; };
+		0965E4BE24DC680200B8665A /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0965E4BD24DC680200B8665A /* ImageDetailViewController.swift */; };
+		BC1013EEF845A6CCD4B15C68 /* Pods_SearchingImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE65D48C20F30BCA2009A30 /* Pods_SearchingImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +36,14 @@
 		0947C3E324D9B195000FFAC0 /* ImageSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchRequest.swift; sourceTree = "<group>"; };
 		0947C3E524D9B1F6000FFAC0 /* ImageSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchResponse.swift; sourceTree = "<group>"; };
 		0947C3E824D9B443000FFAC0 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		3B7EFD9F0D5ACB1D45DBA2DD /* libPods-SearchingImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SearchingImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0957834824DB02DB00FC4FA8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0957834A24DB04EF00FC4FA8 /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
+		0965E4B924DC4E7B00B8665A /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
+		0965E4BB24DC4FE700B8665A /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		0965E4BD24DC680200B8665A /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		DA64610C1671B236BBBCA532 /* Pods-SearchingImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchingImage.release.xcconfig"; path = "Target Support Files/Pods-SearchingImage/Pods-SearchingImage.release.xcconfig"; sourceTree = "<group>"; };
 		E7C6E5CF6B7669CD9C0638CB /* Pods-SearchingImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchingImage.debug.xcconfig"; path = "Target Support Files/Pods-SearchingImage/Pods-SearchingImage.debug.xcconfig"; sourceTree = "<group>"; };
+		ECE65D48C20F30BCA2009A30 /* Pods_SearchingImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchingImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				012F228BA919565409B6E178 /* libPods-SearchingImage.a in Frameworks */,
+				BC1013EEF845A6CCD4B15C68 /* Pods_SearchingImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +90,7 @@
 			children = (
 				0947C3DB24D9A233000FFAC0 /* App */,
 				0947C3DD24D9AAA0000FFAC0 /* Networking */,
+				0965E4B824DC4E6200B8665A /* View */,
 				0947C3E724D9B42B000FFAC0 /* ViewModel */,
 				0947C3E024D9B0A6000FFAC0 /* Model */,
 				0947C3DC24D9A241000FFAC0 /* Controller */,
@@ -103,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				0947C3CB24D9A1FC000FFAC0 /* SearchViewController.swift */,
+				0965E4BD24DC680200B8665A /* ImageDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -113,6 +125,8 @@
 				0947C3E224D9B168000FFAC0 /* Response */,
 				0947C3E124D9B160000FFAC0 /* Request */,
 				0947C3DE24D9AB49000FFAC0 /* APIService.swift */,
+				0957834824DB02DB00FC4FA8 /* Constants.swift */,
+				0957834A24DB04EF00FC4FA8 /* UserEndpoint.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -148,10 +162,19 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		0965E4B824DC4E6200B8665A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0965E4B924DC4E7B00B8665A /* ImageCollectionView.swift */,
+				0965E4BB24DC4FE700B8665A /* ImageCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2726BFA0FFF967E06A4ED216 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B7EFD9F0D5ACB1D45DBA2DD /* libPods-SearchingImage.a */,
+				ECE65D48C20F30BCA2009A30 /* Pods_SearchingImage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,6 +190,7 @@
 				0947C3C024D9A1FC000FFAC0 /* Sources */,
 				0947C3C124D9A1FC000FFAC0 /* Frameworks */,
 				0947C3C224D9A1FC000FFAC0 /* Resources */,
+				F7017C6324E23AE8EA135755 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,6 +270,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F7017C6324E23AE8EA135755 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SearchingImage/Pods-SearchingImage-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SearchingImage/Pods-SearchingImage-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SearchingImage/Pods-SearchingImage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -254,9 +295,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0947C3E924D9B443000FFAC0 /* SearchViewModel.swift in Sources */,
+				0965E4BA24DC4E7B00B8665A /* ImageCollectionView.swift in Sources */,
+				0965E4BE24DC680200B8665A /* ImageDetailViewController.swift in Sources */,
 				0947C3CC24D9A1FC000FFAC0 /* SearchViewController.swift in Sources */,
 				0947C3E624D9B1F6000FFAC0 /* ImageSearchResponse.swift in Sources */,
 				0947C3E424D9B195000FFAC0 /* ImageSearchRequest.swift in Sources */,
+				0957834924DB02DB00FC4FA8 /* Constants.swift in Sources */,
+				0965E4BC24DC4FE700B8665A /* ImageCollectionViewCell.swift in Sources */,
+				0957834B24DB04EF00FC4FA8 /* UserEndpoint.swift in Sources */,
 				0947C3DF24D9AB49000FFAC0 /* APIService.swift in Sources */,
 				0947C3C824D9A1FC000FFAC0 /* AppDelegate.swift in Sources */,
 			);

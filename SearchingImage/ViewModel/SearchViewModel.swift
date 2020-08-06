@@ -9,53 +9,40 @@
 import Foundation
 
 import RxSwift
-import RxCocoa
-class SearchViewModel {    
-    let allHistorySubject = BehaviorRelay(value: [""])
-    let sortHistorySubject = BehaviorRelay(value: [""])
-    
+//import Alamofire
+//import RxCocoa
+
+class SearchViewModel {
+    let disposeBag = DisposeBag()
+//    let allHistorySubject = BehaviorRelay(value: [""])
+//    let sortHistorySubject = BehaviorRelay(value: [""])
 //    let requestResult = PublishSubject<[AppInfo]>()
     
-    func initialSort(text: String) {
-        let historyArr = allHistorySubject.value
+    //Result<ImageSearchResponse, AFError>
+    func searchKeyword(_ text: String, _ page: Int, completion: @escaping (Result<ImageSearchResponse, Error>) -> Void) {
+        let fetchImageCount = 30
+        let sortType = "accuracy"
         
-        var sortArr = [String]()
-        for historyText in historyArr {
-            if (historyText.lowercased() as NSString).range(of: text.lowercased()).lowerBound == 0 {
-                sortArr.append(historyText)
+        let imageSearchRequest = ImageSearchRequest (query: text, sort: sortType, page: page, size: fetchImageCount)
+        let request = UserEndpoint.searchImage(imageSearchRequest: imageSearchRequest)
+        
+        let obj: Single<NetworkResult<ImageSearchResponse>> = APIService.sharedInstance.requestGeneric(request)
+        obj.subscribe { response in
+            switch response {
+                case let .success(value):
+                    switch value {
+                        case let .success(result):
+                            print("success: ", result)
+                            completion(.success(result))
+                        case let .error(error):
+                            print("Error: ", error)
+                            completion(.failure(error))
+                    }
+                    
+                case let .error(error):
+                    print("Error: ", error)
+                    completion(.failure(error))
             }
-        }
-        sortHistorySubject.accept(sortArr)
-    }
-    
-    func loadData() {
-        if let array = UserDefaults.standard.array(forKey: "history") as? [String] {
-            allHistorySubject.accept(array)
-        }
-    }
-    
-    func saveData(text: String) {
-        if text == "" {
-            return
-        }
-        if var array = UserDefaults.standard.array(forKey: "history") as? [String] {
-            if !array.contains(text) {
-                array.insert(text, at: 0)
-                UserDefaults.standard.set(array, forKey: "history")
-            }
-        } else {
-            UserDefaults.standard.set([text], forKey: "history")
-        }
-    }
-    
-    func searchKeyword(text: String, page: Int) -> Single<NetworkResult<ImageSearchResponse>> {
-        let imageSearchRequest = ImageSearchRequest (query: text, sort: "accuracy", page: page, size: 30)
-        
-        guard let parameter = try? imageSearchRequest.asDictionary() else {
-            print("asDictionary error")
-            return .error(RxError.unknown)
-        }
-        
-        return APIService.sharedInstance.ImageSearch(parameters: parameter)
+        }.disposed(by: self.disposeBag) 
     }
 }

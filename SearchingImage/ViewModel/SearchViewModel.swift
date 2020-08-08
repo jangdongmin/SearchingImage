@@ -14,11 +14,7 @@ import RxSwift
 
 class SearchViewModel {
     let disposeBag = DisposeBag()
-//    let allHistorySubject = BehaviorRelay(value: [""])
-//    let sortHistorySubject = BehaviorRelay(value: [""])
-//    let requestResult = PublishSubject<[AppInfo]>()
-    
-    //Result<ImageSearchResponse, AFError>
+
     func searchKeyword(_ text: String, _ page: Int, completion: @escaping (Result<ImageSearchResponse, Error>) -> Void) {
         let fetchImageCount = 30
         let sortType = "accuracy"
@@ -45,4 +41,5 @@ class SearchViewModel {
             }
         }.disposed(by: self.disposeBag) 
     }
+    
 }

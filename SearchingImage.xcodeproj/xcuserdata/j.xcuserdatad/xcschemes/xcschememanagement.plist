@@ -6,8 +6,28 @@
 	<dict>
 		<key>SearchingImage.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>0947C3C324D9A1FC000FFAC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>09C80A5924DEAF04001F70AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>09C80A6724DEAF1C001F70AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

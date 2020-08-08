@@ -25,7 +25,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         setupUI()
         setupBind()
@@ -33,7 +32,6 @@ class SearchViewController: UIViewController {
 
     func setupUI() {
         imageCollectionView.imageCollectionViewDelegate = self
-        
         searchController.searchBar.setValue("취소", forKey:"cancelButtonText")
         searchController.obscuresBackgroundDuringPresentation = false
         
@@ -51,20 +49,22 @@ class SearchViewController: UIViewController {
             .distinctUntilChanged() // 새로운 값이 이전과 같은지 체크
             .filter({ !$0.isEmpty })
             .subscribe(onNext: { query in
-                 
-                self.searchData(text: query)
+                self.searchController.searchBar.resignFirstResponder()
+                self.imageSearch(text: query)
                 
             })
             .disposed(by: disposeBag)
     }
     
-    func searchData(text: String) {
+    func imageSearch(text: String) {
         self.viewModel.searchKeyword(text, 1) { result in
             switch result {
                 case .success(let data):
                     if let count = data.documents?.count {
                         if count > 0 {
                             self.emptyLabel.isHidden = true
+                            self.imageCollectionView.setContentOffset(CGPoint.zero, animated: false)
+                            
                         } else {
                             self.emptyLabel.isHidden = false
                         }
@@ -78,14 +78,19 @@ class SearchViewController: UIViewController {
                     break
             }
         }
-    }
-    
-//    func emptyLabelVisible()
+    } 
 }
 
 extension SearchViewController: ImageCollectionViewDelegate {
-    func select(index: Int) {
+    func select(document: documents) {
         
+        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: String(describing: ImageDetailViewController.self)) as? ImageDetailViewController else {
+            print("ImageDetailViewController == nil")
+            return
+        }
+        
+        vc.document = document
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

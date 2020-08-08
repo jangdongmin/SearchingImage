@@ -11,7 +11,7 @@ import UIKit
 import SDWebImage
 
 protocol ImageCollectionViewDelegate {
-    func select(index: Int)
+    func select(document: documents)
 }
 
 class ImageCollectionView: UICollectionView {
@@ -39,7 +39,12 @@ class ImageCollectionView: UICollectionView {
 
 extension ImageCollectionView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        imageCollectionViewDelegate?.select(index: indexPath.row)
+        guard let document =  documents?[indexPath.row] else {
+            print("documents?[indexPath.row] == nil")
+            return
+        }
+        
+        imageCollectionViewDelegate?.select(document: document)
     }
      
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

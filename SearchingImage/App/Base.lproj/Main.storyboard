@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bgQ-oc-ACi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bgC-rh-Lr8"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="j9V-80-V2p"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xq9-i4-0IK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -97,13 +98,29 @@
         <!--Image Detail View Controller-->
         <scene sceneID="iaV-ZT-rQ8">
             <objects>
-                <viewController id="Vqt-qa-3sc" customClass="ImageDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageDetailViewController" id="Vqt-qa-3sc" customClass="ImageDetailViewController" customModule="SearchingImage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xZi-Q9-zmg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzq-rs-frb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dzq-rs-frb" firstAttribute="bottom" secondItem="xZi-Q9-zmg" secondAttribute="bottom" id="K11-8F-4WV"/>
+                            <constraint firstAttribute="top" secondItem="dzq-rs-frb" secondAttribute="top" id="M02-CI-svN"/>
+                            <constraint firstItem="dzq-rs-frb" firstAttribute="leading" secondItem="vxT-Oo-5pz" secondAttribute="leading" id="Q9G-gc-OhP"/>
+                            <constraint firstItem="vxT-Oo-5pz" firstAttribute="trailing" secondItem="dzq-rs-frb" secondAttribute="trailing" id="RwO-3M-0rq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vxT-Oo-5pz"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xDP-Il-Kre"/>
+                    <connections>
+                        <outlet property="scrollview" destination="dzq-rs-frb" id="9wE-fM-opU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUS-Og-U5D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

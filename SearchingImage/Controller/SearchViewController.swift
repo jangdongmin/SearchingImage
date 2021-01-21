@@ -48,7 +48,8 @@ class SearchViewController: UIViewController {
             .debounce(.milliseconds(1000), scheduler: MainScheduler.instance)
             .distinctUntilChanged() // 새로운 값이 이전과 같은지 체크
             .filter({ !$0.isEmpty })
-            .subscribe(onNext: { query in
+            .subscribe(onNext: { [weak self] query in
+                guard let `self` = self else { return }
                 self.searchController.searchBar.resignFirstResponder()
                 self.imageSearch(text: query)
                 
@@ -57,7 +58,8 @@ class SearchViewController: UIViewController {
     }
     
     func imageSearch(text: String) {
-        self.viewModel.searchKeyword(text, 1) { result in
+        self.viewModel.searchKeyword(text, 1) { [weak self] result in
+            guard let `self` = self else { return }
             switch result {
                 case .success(let data):
                     if let count = data.documents?.count {

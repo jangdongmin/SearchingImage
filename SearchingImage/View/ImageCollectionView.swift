@@ -10,7 +10,7 @@
 import UIKit
 import SDWebImage
 
-protocol ImageCollectionViewDelegate {
+protocol ImageCollectionViewDelegate: class {
     func select(document: documents)
 }
 
@@ -21,7 +21,7 @@ class ImageCollectionView: UICollectionView {
     var isLoading = false
     var page = 1
     var keyword: String?
-    var imageCollectionViewDelegate: ImageCollectionViewDelegate?
+    weak var imageCollectionViewDelegate: ImageCollectionViewDelegate?
     override func awakeFromNib() {
         self.delegate = self
         self.dataSource = self
@@ -81,7 +81,8 @@ extension ImageCollectionView: UICollectionViewDelegateFlowLayout, UICollectionV
             isLoading = true
             page += 1
             
-            viewModel?.searchKeyword(keyword, page) { result in
+            viewModel?.searchKeyword(keyword, page) { [weak self] result in
+                guard let `self` = self else { return }
                 self.isLoading = false
                 
                 switch result {

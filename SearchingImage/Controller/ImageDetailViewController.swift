@@ -28,7 +28,8 @@ class ImageDetailViewController: UIViewController, UIScrollViewDelegate {
         imageView.removeFromSuperview()
         
         //"https://t1.daumcdn.net/cfile/blog/251CA84D54AFE40722"
-        imageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: nil, options: .highPriority) { (image, error, cacheType, url) in
+        imageView.sd_setImage(with: URL(string: imageUrl), placeholderImage: nil, options: .highPriority) { [weak self] (image, error, cacheType, url) in
+            guard let `self` = self else { return }
             
             guard let image = image else {
                 print("image == nil")
